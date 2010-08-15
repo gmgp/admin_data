@@ -32,7 +32,7 @@
             <div id="subCol">
         <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
         <ol class="chapters">
-<li><a href="#whatisadmin-data">What is admin_data?</a><ul><li><a href="#source-code">Source Code</a></li><li><a href="#live-demo">Live Demo</a></li><li><a href="#bug-reporting">Bug Reporting</a></li><li><a href="#railsversionsupported">Rails version supported</a></li><li><a href="#isit-rails3compatible">Is it Rails3 compatible ?</a></li><li><a href="#databasethataresupported">Database that are supported</a></li><li><a href="#requirement">Requirement</a></li></ul></li><li><a href="#features">Features</a><ul><li><a href="#non-intrusive">Non Intrusive</a></li><li><a href="#browsingand-searching">Browsing and Searching</a></li><li><a href="#association-information">Association Information</a></li><li><a href="#miscellaneousfeatures">Miscellaneous features</a></li></ul></li><li><a href="#installing">Installing</a><ul></ul></li><li><a href="#configuringtheplugin">Configuring the plugin</a><ul><li><a href="#numberofrecordsperpage">Number of records per page</a></li><li><a href="#localjqueryfileinsteadofgooglehostedversion">local jquery file instead of google hosted version</a></li><li><a href="#ignorecolumnlimit">Ignore column limit</a></li><li><a href="#overridethedefaultfindcondition">Override the default find condition</a></li><li><a href="#overridethedefaultbehaviourofcolumn">Override the default behaviour of column</a></li><li><a href="#replacedropdownassociationswithinputtext">Replace drop down associations with input text</a></li><li><a href="#rs-sfeedforallmodels"><span class="caps">RSS</span> feed for all models</a></li><li><a href="#customorderofcolumnsinlisting">Custom order of columns in listing</a></li></ul></li><li><a href="#security-configurations">Security Configurations</a><ul></ul></li><li><a href="#howtoruntestforthisplugin">How to run test for this plugin</a><ul></ul></li><li><a href="#authorand-contributors">Author and Contributors</a><ul></ul></li></ol></div>
+<li><a href="#whatisadmin-data">What is admin_data?</a><ul><li><a href="#source-code">Source Code</a></li><li><a href="#live-demo">Live Demo</a></li><li><a href="#bug-reporting">Bug Reporting</a></li><li><a href="#railsversionsupported">Rails version supported</a></li><li><a href="#isit-rails3compatible">Is it Rails3 compatible ?</a></li><li><a href="#databasethataresupported">Database that are supported</a></li><li><a href="#requirement">Requirement</a></li></ul></li><li><a href="#features">Features</a><ul><li><a href="#non-intrusive">Non Intrusive</a></li><li><a href="#browsingand-searching">Browsing and Searching</a></li><li><a href="#association-information">Association Information</a></li><li><a href="#miscellaneousfeatures">Miscellaneous features</a></li></ul></li><li><a href="#installing">Installing</a><ul></ul></li><li><a href="#configuringtheplugin">Configuring the plugin</a><ul><li><a href="#numberofrecordsperpage">Number of records per page</a></li><li><a href="#localjqueryfileinsteadofgooglehostedversion">local jquery file instead of google hosted version</a></li><li><a href="#ignorecolumnlimit">Ignore column limit</a></li><li><a href="#overridethedefaultfindcondition">Override the default find condition</a></li><li><a href="#overridethedefaultbehaviourofcolumn">Override the default behaviour of column</a></li><li><a href="#replacedropdownassociationswithinputtext">Replace drop down associations with input text</a></li><li><a href="#rs-sfeedforallmodels"><span class="caps">RSS</span> feed for all models</a></li><li><a href="#customorderofcolumnsinlisting">Custom order of columns in listing</a></li></ul></li><li><a href="#security-configurations">Security Configurations</a><ul></ul></li><li><a href="#howtousethispluginwithrails3">How to use this plugin with rails3</a><ul></ul></li><li><a href="#howtoruntestforthisplugin">How to run test for this plugin</a><ul></ul></li><li><a href="#authorand-contributors">Author and Contributors</a><ul></ul></li></ol></div>
     </div>
   </div>
 
@@ -202,9 +202,19 @@ AdminData::Config.set = {
   :is_allowed_to_update =&gt; lambda {|controller| controller.send('admin_logged_in?') &amp;&amp; @model.author_name == 'john' },
 }
 </pre>
-<h3 id="howtoruntestforthisplugin">6 How to run test for this plugin</h3>
+<h3 id="howtousethispluginwithrails3">6 How to use this plugin with rails3</h3>
+<p>This plugin works with rails3. There is a separate branch called <tt>rails3</tt> which should be used.</p>
+<p>Since this plugin depends on <tt>will_paginate</tt> gem, first you need to install a version of <tt>will_paginate</tt> that works with rails 3. That can be done by adding following line to <tt>Gemfile</tt> .</p>
+<pre>
+gem 'will_paginate', :git =&gt; 'git://github.com/mislav/will_paginate.git', :branch =&gt; 'rails3'
+</pre>
+<p>You can install <tt>rails3</tt> branch of  this plugin by executing following command.</p>
+<pre>
+rails plugin install git://github.com/neerajdotname/admin_data.git -r rails3
+</pre>
+<h3 id="howtoruntestforthisplugin">7 How to run test for this plugin</h3>
 <p>This plugin has over 200 tests. To run those tests just go to the root of the plugin directory and type <tt>rake</tt> .</p>
-<h3 id="authorand-contributors">7 Author and Contributors</h3>
+<h3 id="authorand-contributors">8 Author and Contributors</h3>
 <p>This plugin is written by <a href="http://github.com/neerajdotname">Neeraj Singh</a> . I am on twitter as <a href="http://twitter.com/neerajdotname">neerajdotname</a>. I am grateful to <a href="http://github.com/neerajdotname/admin_data/contributors">other authors</a> who have contributed to this plugin.</p>
       </div>
     </div>
