@@ -97,7 +97,7 @@ h4. local jquery file instead of google hosted version
 
 <ruby>
 AdminData::Config.set = {
-  :use_google_hosted_version => false
+  :use_google_hosting_for_jquery => false
 }
 </ruby>
 
