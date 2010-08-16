@@ -241,7 +241,7 @@ AdminData::Config.set = {
 
 h3. How to use this plugin with rails3
 
-This plugin works with rails3. There is a separate branch called <tt>rails3</tt> which should be used.
+This plugin works with rails3. This plugin has been converted into a gem for usage in <tt>rails 3</tt>.
 
 Since this plugin depends on <tt>will_paginate</tt> gem, first you need to install a version of <tt>will_paginate</tt> that works with rails 3. That can be done by adding following line to <tt>Gemfile</tt> .
 
@@ -249,10 +249,10 @@ Since this plugin depends on <tt>will_paginate</tt> gem, first you need to insta
 gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
 </ruby>
 
-You can install <tt>rails3</tt> branch of  this plugin by executing following command.
+You can install the gem using bundler like this.
 
 <ruby>
-rails plugin install git://github.com/neerajdotname/admin_data.git -r rails3
+gem 'admin-data'
 </ruby>
 
 
