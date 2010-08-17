@@ -189,7 +189,7 @@ h4. RSS feed for all models
 AdminData::Config.set = {
   :feed_authentication_user_id => 'admin_data',
   :feed_authentication_password => 'welcome'
-end
+}
 </ruby> 
 
 The url to access RSS feed for model +user+ would be +http://localhost:3000/admin_data/feed/user+ . In this link substitute +user+ with the model you want to track.
