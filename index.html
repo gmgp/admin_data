@@ -195,11 +195,10 @@ AdminData::Config.set = {
 </code></div>
 <p>In the above case application_controller.rb must have method <tt>logged_in?</tt> and <tt>admin_logged_in?</tt> .</p>
 <p>As you can see <tt>controller</tt> is provided as argument to proc so you can invoke any method on controller to decide if the user should have access or not.</p>
-<p>You can also define security at a model level. Just use @model in the proc and model instance would be made available as @model .</p>
+<p>You can also define security at a model level. Let&#8217;s say that to some users you don&#8217;t want to show any data related to modle <tt>Payment</tt>. In that case following configuration will prevent the user from accessing that information. <tt>@klass</tt> refers to the model class in question and you can perform any operation on that class.</p>
 <pre>
 AdminData::Config.set = {
-  :is_allowed_to_view_model =&gt; lambda {|controller| controller.send('logged_in?')  &amp;&amp; @model.author_name == 'john' },
-  :is_allowed_to_update =&gt; lambda {|controller| controller.send('admin_logged_in?') &amp;&amp; @model.author_name == 'john' },
+  :is_allowed_to_view_klass =&gt; lambda {|controller| controller.instance_variable_get('@klass').name == 'Payment' }
 }
 </pre>
 <h3 id="howtousethispluginwithrails3">6 How to use this plugin with rails3</h3>

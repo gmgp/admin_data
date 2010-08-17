@@ -230,12 +230,11 @@ In the above case application_controller.rb must have method +logged_in?+ and +a
 
 As you can see +controller+ is provided as argument to proc so you can invoke any method on controller to decide if the user should have access or not.
 
-You can also define security at a model level. Just use @model in the proc and model instance would be made available as @model .
+You can also define security at a model level. Let's say that to some users you don't want to show any data related to modle <tt>Payment</tt>. In that case following configuration will prevent the user from accessing that information. <tt>@klass</tt> refers to the model class in question and you can perform any operation on that class.
 
 <pre>
 AdminData::Config.set = {
-  :is_allowed_to_view_model => lambda {|controller| controller.send('logged_in?')  && @model.author_name == 'john' },
-  :is_allowed_to_update => lambda {|controller| controller.send('admin_logged_in?') && @model.author_name == 'john' },
+  :is_allowed_to_view_klass => lambda {|controller| controller.instance_variable_get('@klass').name == 'Payment' }
 }
 </pre>
 
